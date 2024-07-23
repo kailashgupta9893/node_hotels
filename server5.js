@@ -2,6 +2,11 @@ import express, { Router } from 'express';
 
 const app = express();
 import "./db.js";
+//import dotenv from "config"
+//import { configDotenv } from 'dotenv';
+import 'dotenv/config'
+
+const PORT = process.env.PORT || 3000;
 
 import bodyParser from "body-parser"
 app.use(bodyParser.json()); // req.body
@@ -26,6 +31,8 @@ import menuRoutes from "./routes/menuRoutes.js"
 app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
 
-app.listen(3000, () => {
+
+
+app.listen(PORT, () => {
   console.log('listening on port 3000');
 });
